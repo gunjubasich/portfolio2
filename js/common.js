@@ -16,4 +16,46 @@ $(function() {
 	api.bind('close:finish', function() {
 	$('.hamburger').removeClass('is-active');
 }); 
+	$('.carousel-services').on('initialized.owl.carousel', function() {
+		setTimeout(function() {
+		carouselServices()
+		},100)
+	});
+	$('.carousel-services').owlCarousel({
+    //loop:true,
+    nav:true,
+    navText: ['<i class="fa fa-angle-double-left"></i>', '<i class="fa fa-angle-double-right"></i>'],
+    responsive:{
+        0:{
+            items:1
+        },
+        800:{
+            items:2
+        },
+        1100:{
+            items:3
+        }
+    }
+
+   
+});
+	$('.carousel-services-content').equalHeights();
+
+	function carouselServices() {
+		$('.carousel-services-item').each(function() {
+			var ths = $(this),
+				thsh = ths.find('.carousel-services-content').outerHeight();
+				ths.find('.carousel-services-image').css('min-height', thsh);
+		});
+	}carouselServices();
+
+	$('.carousel-services-composition .h3').each(function() {
+		var ths = $(this);
+		ths.html(ths.html().replace(/(\S+)\s*$/, '<span>$1</span>'));		//выделяем каждое второе слово в спан
+		});
+	$('section .h2').each(function() {
+		var ths = $(this);
+		ths.html(ths.html().replace(/^(\S+)/, '<span>$1</span>'));		//выделяем каждое первое слово в спан
+		});
+
 });

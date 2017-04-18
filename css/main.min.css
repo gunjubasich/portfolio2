@@ -8213,7 +8213,9 @@ html.mm-opened {
     -webkit-filter: blur(10px);
             filter: blur(10px); }
 
-input, textarea, select {
+input, textarea, select,
+.selectize-input.input-active .selectize-control.single,
+.selectize-control .selectize-input {
   background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -8239,20 +8241,57 @@ select {
     margin: 0; }
   .callback p {
     margin-top: 0; }
-  .callback input, .callback textarea, .callback select {
+  .callback input, .callback textarea, .callback select,
+  .callback .selectize-control .selectize-input,
+  .callback .selectize-control.single .selectize-input.input-active {
     color: #fff;
     width: 100%;
     margin-top: 20px; }
-    .callback input::-webkit-input-placeholder, .callback textarea::-webkit-input-placeholder, .callback select::-webkit-input-placeholder {
+    .callback input::-webkit-input-placeholder, .callback textarea::-webkit-input-placeholder, .callback select::-webkit-input-placeholder,
+    .callback .selectize-control .selectize-input::-webkit-input-placeholder,
+    .callback .selectize-control.single .selectize-input.input-active::-webkit-input-placeholder {
       color: #fff;
       opacity: 1; }
-    .callback input::-moz-placeholder, .callback textarea::-moz-placeholder, .callback select::-moz-placeholder {
+    .callback input::-moz-placeholder, .callback textarea::-moz-placeholder, .callback select::-moz-placeholder,
+    .callback .selectize-control .selectize-input::-moz-placeholder,
+    .callback .selectize-control.single .selectize-input.input-active::-moz-placeholder {
       color: #fff;
       opacity: 1; }
-    .callback input::-ms-input-placeholder, .callback textarea::-ms-input-placeholder, .callback select::-ms-input-placeholder {
+    .callback input::-ms-input-placeholder, .callback textarea::-ms-input-placeholder, .callback select::-ms-input-placeholder,
+    .callback .selectize-control .selectize-input::-ms-input-placeholder,
+    .callback .selectize-control.single .selectize-input.input-active::-ms-input-placeholder {
       color: #fff; }
   .callback button {
     margin-top: 40px; }
+
+.selectize-control .selectize-input {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  overflow: inherit;
+  line-height: inherit;
+  text-align: left; }
+  .selectize-control .selectize-input input {
+    font-size: 16px; }
+
+.selectize-control.single .selectize-input:after {
+  border: none;
+  content: '\f107';
+  font-family: fontawesome;
+  position: absolute;
+  top: 10px;
+  right: 30px; }
+  .selectize-control.single .selectize-input:after .dropdown-active:after {
+    content: '\f106'; }
+
+.selectize-dropdown {
+  font-size: 15px;
+  border: none;
+  -webkit-border-radius: 0;
+          border-radius: 0; }
+  .selectize-dropdown-content .option {
+    padding: 10px 22px; }
+    .selectize-dropdown-content .option.active {
+      background-color: #fce3b3; }
 
 /*==========  Desktop First  ==========*/
 /* Large Devices, Wide Screens */
@@ -8268,12 +8307,18 @@ select {
         -ms-flex-direction: column;
             flex-direction: column; }
   .s-king, .s-review, .s-partners {
-    padding: 8% 0; } }
+    padding: 8% 0; }
+  .s-call {
+    background-size: cover; } }
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
   .welcome .h1 {
-    font-size: 48px; } }
+    font-size: 48px; }
+  .s-call::before {
+    width: 100%; }
+  .s-call .callback {
+    padding: 10% 0; } }
 
 /* Small Devices, Tablets */
 @media only screen and (max-width: 768px) {

@@ -453,7 +453,9 @@ $colors: $blue, $red, $accent
 
 
 
-input, textarea, select
+input, textarea, select,
+.selectize-input.input-active .selectize-control.single,
+.selectize-control .selectize-input
 	background-color: transparent
 	border: 1px solid rgba(#000, .1)
 	border-bottom: 1px solid rgba(#000, .1)
@@ -478,7 +480,9 @@ select
 		margin: 0
 	p
 		margin-top: 0
-	input, textarea, select
+	input, textarea, select,
+	.selectize-control .selectize-input,
+	.selectize-control.single .selectize-input.input-active
 		color: #fff
 		width: 100%
 		margin-top: 20px
@@ -493,5 +497,30 @@ select
 	button
 		margin-top: 40px		
 
+.selectize-control .selectize-input
+	box-shadow: none
+	overflow: inherit
+	line-height: inherit
+	text-align: left
+	input
+		font-size: 16px
 
+.selectize-control.single .selectize-input:after
+	border: none
+	content: '\f107'
+	font-family: fontawesome
+	position: absolute
+	top: 10px
+	right: 30px
+	.dropdown-active:after
+		content: '\f106'
+.selectize-dropdown
+	font-size: 15px
+	border: none
+	border-radius: 0
+	&-content
+		.option
+			padding: 10px 22px
+			&.active
+				background-color: lighten($accent, 15)
 @import "media" // Всегда в конце

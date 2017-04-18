@@ -58,7 +58,7 @@ $(function() {
 		ths.html(ths.html().replace(/^(\S+)/, '<span>$1</span>'));		//выделяем каждое первое слово в спан
 		});
 	
-	$('#uslug').selectize({
+	$('select').selectize({
 		create: true,
 	});
 

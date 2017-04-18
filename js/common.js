@@ -57,5 +57,27 @@ $(function() {
 		var ths = $(this);
 		ths.html(ths.html().replace(/^(\S+)/, '<span>$1</span>'));		//выделяем каждое первое слово в спан
 		});
+	
+	$('#uslug').selectize({
+		create: true,
+	});
+
+//E-mail Ajax Send
+	$("form.callback").submit(function() { //Change изменить селектор формы с помощью которого обрабатывается скрипт
+		var th = $(this);
+		$.ajax({
+			type: "POST",
+			url: "mail.php", //Change путь до файла
+			data: th.serialize()
+		}).done(function() {
+			$(th).find('.success').addClass('active').css('display', 'flex').hide().fadeIn();
+			setTimeout(function() {
+				$(th).find('success').removeClass('active').fadeOut();
+				// Done Functions
+				th.trigger("reset");
+			}, 3000);
+		});
+		return false;
+	});
 
 });

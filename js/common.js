@@ -72,7 +72,7 @@ $(function() {
 		}).done(function() {
 			$(th).find('.success').addClass('active').css('display', 'flex').hide().fadeIn();
 			setTimeout(function() {
-				$(th).find('success').removeClass('active').fadeOut();
+				$(th).find('.success').removeClass('active').fadeOut();
 				// Done Functions
 				th.trigger("reset");
 			}, 3000);

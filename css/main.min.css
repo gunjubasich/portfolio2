@@ -7793,7 +7793,7 @@ html, body {
   50% {
     opacity: 0.5;
     filter: alpha(opacity=50); }
-  110% {
+  100% {
     opacity: 0;
     filter: alpha(opacity=0); } }
 
@@ -7804,7 +7804,7 @@ html, body {
   50% {
     opacity: 0.5;
     filter: alpha(opacity=50); }
-  110% {
+  100% {
     opacity: 0;
     filter: alpha(opacity=0); } }
 
